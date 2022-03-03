@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import ReactTooltip from "react-tooltip";
 
 import "./Skills.scss";
-import { AppWrap } from "../../wrapper";
+import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 
 const Skills = () => {
@@ -49,7 +49,7 @@ const Skills = () => {
 
 				<div className="app__skills-exp">
 					{experiences.map((experience) => (
-						<motion.div className="app__skills-epx-item" key={experience.year}>
+						<motion.div className="app__skills-exp-item" key={experience.year}>
 							<div className="app__skills-exp-year">
 								<p className="bold-text">{experience.year}</p>
 							</div>
@@ -86,4 +86,8 @@ const Skills = () => {
 	);
 };
 
-export default Skills;
+export default AppWrap(
+	MotionWrap(Skills, "app__skills"),
+	"skills",
+	"app__whitebg"
+);
